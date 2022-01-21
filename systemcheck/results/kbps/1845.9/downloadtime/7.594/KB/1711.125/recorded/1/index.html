@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>golfdigital.tv</title>
+<script type="text/javascript" src="/files/js/prototype.js"></script>
+<script type="text/javascript" src="/files/js/global1.js"></script>
+<link rel="stylesheet" type="text/css" href="/files/css/styles1.css" media="screen" />
+<link rel="shortcut icon" href="/files/img/favicon.ico" />
+	<script type="text/javascript" src="/files/systemcheck/Silverlight.js"></script>
+	<script type="text/javascript" src="/files/systemcheck/Default_html.js"></script>
+	<script type="text/javascript" src="/files/systemcheck/Page.xaml.js"></script>
+
+
+<script language="JavaScript" type="text/javascript">
+var browserok="test";
+var bandbreite="test";
+function platformDetect(){
+
+  if(navigator.appVersion.indexOf("Win") != -1)
+  {
+    browser = navigator.appName;
+	if(browser.indexOf("Opera") != -1){
+	browserok="false";
+		return '<div class=\"systemchk\"><p class=\"ptitle\"><img src=\"/files/img/chkno.png\" alt=\"no\" width=\"44\" height=\"44\" class=\"flright\" />Browsercheck</p><p>Ihr derzeitiger Internetbrowser ist für golfdigital.tv nicht geeignet.<br />Bitte nutzen Sie: Microsoft Internet Explorer ab Version 7 oder Firefox (PC)</p><div class=\"brclear\"></div></div>';
+  	
+	} else {		
+	browserok="true";
+		return '<div class=\"systemchk\"><p class=\"ptitle\"><img src=\"/files/img/chkok.png\" alt=\"ok\" width=\"44\" height=\"44\" class=\"flright\" />Browsercheck</p><p>Mit Ihrem Internetbrowser können Sie golfdigital.tv empfangen</p><div class=\"brclear\"></div></div>';
+	
+	}
+  }
+  else if(navigator.appVersion.indexOf("Mac") != -1)
+  {
+    browser = navigator.appName;
+	if(browser.indexOf("Opera") != -1){
+		browserok="false";
+		return '<div class=\"systemchk\"><p class=\"ptitle\"><img src=\"/files/img/chkno.png\" alt=\"no\" width=\"44\" height=\"44\" class=\"flright\" />Browsercheck</p><p>Ihr derzeitiger Internetbrowser ist für golfdigital.tv nicht geeignet.<br />Bitte nutzen Sie: Safari oder Firefox (Mac)</p><div class=\"brclear\"></div></div>';
+  
+	} else {
+	browserok="true";
+		return '<div class=\"systemchk\"><p class=\"ptitle\"><img src=\"/files/img/chkok.png\" alt=\"ok\" width=\"44\" height=\"44\" class=\"flright\" />Browsercheck</p><p>Mit Ihrem Internetbrowser können Sie golfdigital.tv empfangen</p><div class=\"brclear\"></div></div>';
+
+	}
+  }
+ else {
+ 	browserok="false";
+ return '<div class=\"systemchk\"><p class=\"ptitle\"><img src=\"/files/img/chkno.png\" alt=\"no\" width=\"44\" height=\"44\" class=\"flright\" />Browsercheck</p><p>Ihr derzeitiger Internetbrowser ist für golfdigital.tv nicht geeignet.<br />Bitte nutzen Sie: Microsoft Internet Explorer ab Version 7 oder Firefox (PC) bzw. Safari oder Firefox (Mac)</p><div class=\"brclear\"></div></div>';
+}
+}
+
+function BrowserInfo()
+{
+  this.name = navigator.appName;
+  this.codename = navigator.appCodeName;
+  this.version = navigator.appVersion.substring(0,4);
+  this.platform = navigator.platform;
+  this.javaEnabled = navigator.javaEnabled();
+  this.screenWidth = screen.width;
+  this.screenHeight = screen.height;
+}
+
+</script>
+</head>
+
+<body>
+<div class="bg">
+
+	<div id="holder">
+		<div id="header"><a href="/"><img src="/files/img/logo1.png" alt="golfdigital.tv" title="golfdigital.tv" width="251" height="74" /></a></div>
+		<div id="content">
+		
+
+
+<script type="text/javascript">
+function setCookie(name, wert, domain, expires, path, secure){
+   var cook = name + "=" + unescape(wert);
+   cook += (domain) ? "; domain=" + domain : "";
+   cook += (expires) ? "; expires=" + expires : "";
+   cook += (path) ? "; path=" + path : "";
+   cook += (secure) ? "; secure" : "";
+   document.cookie = cook;
+}
+
+function getCookie(name) {
+   var i=0;  //Suchposition im Cookie
+   var suche = name + "=";
+   while (i<document.cookie.length) {
+      if (document.cookie.substring(i, i + suche.length)
+      == suche) {
+         var ende = document.cookie.indexOf(";", i
+         + suche.length);
+         ende = (ende > -1) ? ende :
+         document.cookie.length;
+         var cook = document.cookie.substring(i
+            + suche.length, ende);
+         return unescape(cook);
+      }
+      i++;
+   }
+   return "";
+}
+
+function eraseCookie(name, domain, path) {
+   var cook=name+"=; expires=Thu, 01-Jan-70 00:00:01 GMT";
+   cook += (domain) ? "domain=" + domain : "";
+   cook += (path) ? "path=" + path : "";
+   document.cookie = cook;
+}
+
+function submitter() {
+	if (document.login.login_merken.checked) {
+		ablauf = new Date();
+		ablauf.setTime(ablauf.getTime()+(1000*3600*24*356));
+		setCookie("u1", document.login.user.value, false, ablauf.toGMTString(),'/');
+		setCookie("u2", document.login['pwd[03cf01ab1a9e0f461e4af33fce8d71f6]'].value, false, ablauf.toGMTString(),'/');
+	} else {
+		ablauf = new Date();
+		ablauf.setTime(ablauf.getTime()-1);
+		setCookie("u1", document.login.user.value, false, ablauf.toGMTString(),'/');
+		setCookie("u2", document.login['pwd[03cf01ab1a9e0f461e4af33fce8d71f6]'].value, false, ablauf.toGMTString(),'/');
+	}
+	//document.login.submit();
+ 	return (true);
+}
+
+function get_u1() {
+	return (getCookie('u1'));
+}
+
+function get_u2() {
+	return (getCookie('u2'));
+}
+
+function forminit() {
+	var u1 = get_u1();
+	var u2 = get_u2();
+	if (u1!='' && u2!='') {
+		document.login.login_merken.checked = true;
+	}
+	document.login.user.value = get_u1();
+	document.login['pwd[03cf01ab1a9e0f461e4af33fce8d71f6]'].value = get_u2();
+	if (document.forms.length < 2){ 
+	document.login.user.focus();
+	}
+}
+
+</script>
+
+<div class="col1">
+	<div class="but">
+		<div class="butlink"><a href="/free" class="buli" id="buli1"  onmouseover="switchStyle('on', 1);" onmouseout="switchStyle('off', 1);" >Gratis testen</a></div><div class="butimg"><a href="/free"><img src="/files/img/but0.gif" width="21" height="27" name="but1" id="but1"  onmouseover="switchStyle('on', 1);" onmouseout="switchStyle('off', 1);"  /></a></div></div>
+	
+	<div class="but">
+		<div class="butlink"><a href="/buy" class="buli" id="buli2"  onmouseover="switchStyle('on', 2);" onmouseout="switchStyle('off', 2);" >Premium Mitgliedschaft</a></div><div class="butimg"><a href="/buy"><img src="/files/img/but0.gif" width="21" height="27" name="but2" id="but2"  onmouseover="switchStyle('on', 2);" onmouseout="switchStyle('off', 2);"  /></a></div></div>
+	
+	<div class="but">
+		<div class="butlink"><a href="/gift" class="buli" id="buli3"  onmouseover="switchStyle('on', 3);" onmouseout="switchStyle('off', 3);" >Geschenk Abo</a></div><div class="butimg"><a href="/gift"><img src="/files/img/but0.gif" width="21" height="27" name="but3" id="but3"  onmouseover="switchStyle('on', 3);" onmouseout="switchStyle('off', 3);"  /></a></div></div>
+	
+	<div class="but">
+		<div class="butlink"><a href="/voucher" class="buli" id="buli4"  onmouseover="switchStyle('on', 4);" onmouseout="switchStyle('off', 4);" >Gutschein einl&ouml;sen</a></div><div class="butimg"><a href="/voucher"><img src="/files/img/but0.gif" name="but4" id="but4" width="21" height="27"  onmouseover="switchStyle('on', 4);" onmouseout="switchStyle('off', 4);"  /></a></div></div>
+	
+	<div class="but">
+		<div class="butlink"><a href="/index/info" class="buli" id="buli5"  onmouseover="switchStyle('on', 5);" onmouseout="switchStyle('off', 5);" >Info</a></div><div class="butimg"><a href="/index/info"><img src="/files/img/but0.gif" width="21" height="27" name="but5" id="but5"  onmouseover="switchStyle('on', 5);" onmouseout="switchStyle('off', 5);"  /></a></div></div>
+	
+	<div class="brclear10">&nbsp;</div>
+	
+	<div class="loginbox">
+		<div class="lo_top"><img src="/files/img/col1top.png" width="194" height="5" /></div>
+		<form action="/index/login" name="login" method="post" onSubmit="return submitter();">
+			<input name="rk" value="03cf01ab1a9e0f461e4af33fce8d71f6" type="hidden">
+			<div class="lo_mi">
+				<!--<p class="anmeldung">Anmeldung</p>-->
+				<p class="lomip pad8px">Benutzername:</p>
+				<p class="lomip"><input id="name" name="user" maxlength="50" type="text" class="input_lg" onFocus="swapFocus(this)" onBlur="swapBlur(this)" value="" /></p>
+				<p class="lomip">Passwort:</p>
+				<p class="lomip"><input id="pwd" name="pwd[03cf01ab1a9e0f461e4af33fce8d71f6]" type="password" maxlength="20" class="input_lg"  onFocus="swapFocus(this)" onBlur="swapBlur(this)"></p>
+				<p class="lome"><input type="image" src="/files/img/anmelden.gif" alt="anmelden" class="input_anm"><p>
+				<p class="loma"><input name="login_merken" type="checkbox" value="" class="input_chk" /> Login merken</p>
+				
+		
+				<div class="losub">
+										<p class="lomip"><a href="/registry/answer/tabIndex/4">Passwort vergessen?</a></p>
+					<p class="lomip"><a href="/index/sendMail">Bestätigungsmail neu senden</a></p>
+				</div>
+			</div>
+		</form>
+	<div class="lo_bo"><img src="/files/img/col1bo.png" width="194" height="5" /></div>
+</div>
+</div>
+<script type="text/javascript">
+forminit();
+</script>
+		<div class="col2"><div class="vidtop"><img src="/files/img/leiste_oben2.png" width="520" height="4" /></div>
+<div id="maincont">
+<div class="maincontin">
+<div class="formviewtop">
+			<div class="formviewtopin">
+			<h3>Systemcheck</h3>
+			</div>
+			</div>
+		 <div class="formviewtopin">
+<script language="JavaScript" type="text/javascript">
+		document.writeln(platformDetect())+'<br />';
+		var myInfo = new BrowserInfo();
+
+/*	  this.name = navigator.appName;
+  this.codename = navigator.appCodeName;
+  this.version = navigator.appVersion.substring(0,4);
+  this.platform = navigator.platform;
+  this.javaEnabled = navigator.javaEnabled();
+  this.screenWidth = screen.width;
+  this.screenHeight = screen.height;
+  */
+  
+	//alert(myInfo.platform+' -- '+myInfo.name+' -- '+myInfo.codename+' -- '+myInfo.version+' -- '+navigator.userAgent);
+
+</script>
+	           	
+ 	
+<div class="systemchk"><p class="ptitle"><img src="/files/img/chkok.png" alt="ok" width="44" height="44" class="flright" />Bandbreite</p>
+<!--<p>Ihre Verbindung ins Internet hat eine Bandbreite von <span class="error">1.80 Mbps</span>.</p> 
+-->
+				<p>Ihre Verbindung ins Internet ist ausreichend, um golfdigital.tv zu empfangen.</p><div class="brclear"></div></div>
+				   		           	
+
+
+
+
+<div id="silverok" class="systemchk systemchk5" style="display:block;"><p class="ptitle"><img src="/files/img/chkok.png" alt="ok" width="44" height="44" class="flright" />Silverlight</p>
+		        <p>Sie haben bereits Microsoft Silverlight installiert und können<br /> golfdigital.tv sofort nutzen.</p><div class="brclear"></div></div> 
+<div id="silverno" class="systemchk systemchk5" style="display:block;"><p class="ptitle"><img src="/files/img/chkno.png" alt="no" width="44" height="44" class="flright" />Silverlight</p>
+		        <p>Sie benötigen die kostenlose Software 'Microsoft Silverlight'. Klicken Sie die Silverlight-Grafik um die Software zu installieren. Weitere technische Informationen zu Microsoft Silverlight finden Sie hier: 
+</p><div class="brclear"></div></div>				  	
+
+	<div id="silverlightControlHost">
+	<script language="JavaScript" type="text/javascript">
+			createSilverlight();
+		</script>
+	</div>
+
+<script language="JavaScript" type="text/javascript">
+
+	/*
+	
+alert("silver" + Silverlight.available);
+	
+	*/ 
+
+	var bandbreite = true;
+
+function summary(){
+if(bandbreite==true && browserok=="true" && (Silverlight.available==true)){
+	return '<div class=\"systemchk\"><p class=\"ptitle\"><a href="\/systemcheck/video"\ class="submit2" ><img src=\"/files/img/chkok.png\" alt=\"ok\" width=\"44\" height=\"44\" class=\"flright\" />&nbsp;</a>Testvideo</p><p>Ihr Computer ist nun startklar für golfdigital.tv. Klicken Sie <a href="\/systemcheck/video"\ class="submit2" >hier</a> um ein Testvideo zu starten.</p><div class=\"brclear\"></div></div>';
+  	
+	} else {		
+	return '<div class=\"systemchk\"><p class=\"ptitle\"><img src=\"/files/img/chkno.png\" alt=\"no\" width=\"44\" height=\"44\" class=\"flright\" />Testvideo</p><p>Leider sind noch nicht alle Voraussetzungen erfüllt, um ein Testvideo sehen zu können</p><div class=\"brclear\"></div></div>';
+	
+	}
+
+}
+
+
+document.write(summary());
+
+</script>
+	      
+
+			
+</div>	
+</div>			
+</div><div class="vidbot"><img src="/files/img/leiste_unten2.png" width="520" height="4" /></div>
+</div>
+		      <div class="col3">
+	<div class="box1"><a href="/free"><img src="/files/img/teaser1.png" alt="jetzt kostenlos testen" width="135" height="130" border="0" /></a></div>
+	<div class="box2"><a href="/index/tour"><img src="/files/img/teaser2.png" alt="geführte Tour starten" width="135" height="129" border="0" /></a></div>
+	<div class="box3"><a href="/systemcheck"><img src="/files/img/teaser3.png" alt="System-Check" width="135" height="130" border="0" /></a></div>
+</div>
+		</div><!-- /content-->
+
+	</div><!-- /holder-->
+		<div id="footer">
+		<div>
+		<a href="/files/html/agb.html" target="_blank" class="linkweiss">AGB</a>&nbsp;|&nbsp;
+		<a href="/index/impressum" class="linkweiss">IMPRESSUM</a></div>
+	</div>
+	<div id="footerleft" style="position:fixed; bottom:8px; right:50%; width:436px; text-align:left; z-index:21; font-weight:bold;">
+		<a href="#" class="linkweiss" style="text-decoration:underline;" onclick="var imgwindow=window.open('http://nexx.tv/golfdigital/viatv.php','golfdigitaltv','height=400,width=512,location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no,screenX='+Math.round((screen.availWidth-512)/2)+',screenY=100');imgwindow.focus();"><b>golfdigital.tv auf Ihrem Fernseher!</b></a>
+	</div>
+	<script type='text/javascript'>
+	function emulate_blink(){
+	if(document.getElementById('footerleft').style.visibility=='hidden'){
+		document.getElementById('footerleft').style.visibility='visible';
+	}else{
+		if(counter==3){
+			document.getElementById('footerleft').style.visibility='hidden';
+			counter=0;
+		}else{
+			counter++;
+		}
+	}}
+	var counter=0;
+	blink=window.setInterval("emulate_blink()",250);
+	</script>
+	<div id="impressum"></div>
+	<div id="impressum_text">
+		<a href="#" onclick="closeimpressum()" class="impressumclose">schliessen</a>
+		<p class="bold">golfdigital.tv GmbH</p>
+		<p>Betastra&szlig;e 9a
+		<br />85774 Unterf&ouml;hring
+		<br />Deutschland
+		<br />Telefon:  +49 (0) 89 - 200 035 444
+		<br />Fax: +49 (0) 89 - 200 035 499
+		<br />E-Mail: <a href="mailto:info@golfdigital.tv">info@golfdigital.tv</a><br />
+
+		<br />www.golfdigital.tv
+		<br />Amtsgericht K&ouml;nigstein: HRB 7078<br /> Geschäftsführer: Dennis Beste</p>
+		
+	</div>
+<div id="cont_agb"></div></body>
+</html>
+

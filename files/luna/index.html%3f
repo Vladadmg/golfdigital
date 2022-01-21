@@ -1,0 +1,202 @@
+<html lang="en">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>golfdigital.tv</title>
+	<link rel="stylesheet" type="text/css" href="history/history.css" />
+	<link rel="shortcut icon" href="/files/img/favicon.ico" />
+	<script src="js/AC_OETags.js" language="javascript"></script>
+	<script src="history/history.js" language="javascript"></script>
+	<script src="js/swfobject.js" language="javascript"></script>
+
+	<script src="js/externIFrame.js" language="javascript"></script>
+	<style>
+	body { margin: 0px; overflow:hidden }
+	img {border:none;}
+	</style>
+	
+	<style type="text/css">
+	
+	body {
+	background:#000000;
+	}
+	
+	.overlay_hide {
+	display:none;
+	}
+	
+	.overlay_show {
+	position:absolute;
+	margin-top:-225px;
+	color:black;
+	background-color:transparent;
+	height:450px;
+	width:556px;
+	margin-left:-278px;
+	z-index:20;
+	font-size:14pt;
+	text-align:center;
+	}
+	
+	#flashview {
+	position:absolute;
+	margin:0;
+	height:1px;
+	width:100%;
+	}
+	
+	#fForm {
+	left:0;
+	top:0;
+	position:absolute; 
+	}
+	
+	.raster_bg {
+	position:absolute; 
+	z-index:-1; 
+	-moz-opacity: 0.4;
+	opacity: .4;
+	filter: alpha(opacity=40);
+	top:0;
+	left:0;
+	}
+	
+	#overlayframe {
+	position:absolute;
+	top:28px;
+	left:18px;
+	}
+	
+	#close_button {
+	position:absolute;
+	top:7px;
+	left:535px;
+	
+	}
+	
+	</style>
+	
+	</ head>
+	
+	<body>
+	<div id="flashview">
+	
+	<div id="overlay" class="overlay_hide"  onmousedown="mD(this,event)">
+
+	<div class="raster_bg">
+	<img src="assets/image/raster_bg.gif" width="556" height="442" />
+	</div>
+	<div id="close_button"><a href="javascript:closeIframe();"><img src="assets/image/close_x.png" width="10" height="12" /></a></div>
+	
+	<p>
+	<iframe allowtransparency="true" id="overlayframe" name="Overlayframe" frameborder="0" width="525" height="405" marginheight="0" marginwidth="0">
+	<p>Ihr Browser kann leider keine eingebetteten Frames anzeigen</p>
+	</iframe>
+	</p>				
+	</div>
+	
+	</div>
+
+    
+	<div id="flashvideo"></div><div id="flashObj"></div>
+
+	<div id="caddview" style="position:absolute;visibility:hidden;">	
+	<iframe allowtransparency="true" id="caddframe" name="caddframe" scrolling="no" frameborder="0" width="300" height="250" marginheight="0" marginwidth="0" style="position:absolute; top:19px; left:15px;">
+	</iframe>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+	function fetch_window(what){
+		var x,y;
+
+		if (self.innerHeight){
+			x = self.innerWidth;
+			y = self.innerHeight;
+		}else if (document.documentElement && document.documentElement.clientHeight){
+			x = document.documentElement.clientWidth;
+			y = document.documentElement.clientHeight;
+		}else if (document.body){
+			x = document.body.clientWidth;
+			y = document.body.clientHeight;}
+		if(what=='y'){
+			return(y);
+		}else{
+			if(x<1000){x=1024;}
+			((x==1024)&&(document.all)&&(!window.opera))?x=1014:null;
+			return(x);
+		}
+	}
+
+	var so = new SWFObject("c_Main.swf", "c_Main", "100%", "100%", "9.0.124", "#4576A8", "high", "", "flasherror/flasherror.html");
+	so.addParam("menu", "false");
+	so.addParam("allowScriptAccess", "always");
+	so.addParam("wmode","transparent"); 
+	so.addParam("allowFullScreen", "true");
+	so.addVariable("cid", getQueryParamValue("cid"));
+	so.addVariable("type", getQueryParamValue("type"));
+	so.write("flashvideo");
+
+	function changeFrames(str){
+		if(logstate==0){
+			//document.getElementById('adtopframe').src='ad_top.html?t='+(Math.random()*100000);
+			//document.getElementById('adrightframe').src='ad_right.html?t='+(Math.random()*100000);
+			if(contentaddv==1){
+				document.getElementById('caddframe').src='ad_content.html?t='+(Math.random()*100000);
+			}
+		}
+	}
+
+	function login(ls){
+		if(ls=='pay'){
+			logstate=1;
+			//document.getElementById('frameholdertop').innerHTML='';
+			//document.getElementById('frameholderright').innerHTML='';
+			document.getElementById('caddview').innerHTML='';
+		}
+	}
+	
+	</script>			
+	
+	<script type="text/javascript">
+	var userAction 	= getQueryParamValue("userAction");
+	var key 		= getQueryParamValue("key");
+	var key2 		= getQueryParamValue("key2");
+	var type 		= getQueryParamValue("type");
+	
+	flashCall(userAction, key, key2, type);
+
+	function positionthem(){
+		var cx=fetch_window('x');
+		var cy=fetch_window('y');
+		//document.getElementById('adtopframe').style.top=(cy-624-((cy-640)/2))+'px';
+		//document.getElementById('adrightframe').style.top=document.getElementById('adtopframe').style.top;
+		//document.getElementById('adtopframe').style.left=(cx-998-((cx-1024)/2))+'px';
+		//document.getElementById('adrightframe').style.left=(parseInt(document.getElementById('adtopframe').style.left)+796)+'px';
+		//document.getElementById('frameholdertop').style.visibility='visible';
+		//document.getElementById('frameholderright').style.visibility='visible';
+		document.getElementById("caddview").style.left=((parseInt((cx-998-((cx-1024)/2)))+796)-10)+'px';
+		document.getElementById("caddview").style.top= ((cy-624-((cy-640)/2))+70)+'px';
+		document.getElementById('caddview').style.visibility='visible';
+	}	
+
+	function init(){
+		if(cx>1000){
+			contentaddv=1;
+			document.getElementById('caddframe').src='ad_content.html?t='+(Math.random()*100000);
+		}else{
+			contentaddv=0;
+		}
+		positionthem();
+	}
+
+	var logstate=0;
+	var contentaddav=0;
+	var cx=fetch_window('x');
+	
+	window.onresize=positionthem;
+	
+	</script>
+	
+	</body>
+</html>

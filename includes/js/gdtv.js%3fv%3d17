@@ -1,0 +1,233 @@
+_client={
+	constants:{
+		supportsFallback:true,
+		hasComments:true,
+		cookierefer:'gdtv'
+	},
+	getText:function(m){
+		return _texts[m];
+	},
+	renderIVW:function(m){
+		var tt='sp';
+		switch(m){
+			case 'impressum':
+			case 'datenschutz':
+				tt='uk';
+			break;
+			case 'start':
+				tt='hp';
+			break;
+		}
+		var nr="http://holeinon.ivwbox.de/cgi-bin/ivw/CP/gdtv_rc_"+tt+";"+escape(m)+"?r="+escape('http://www.golfdigital.tv'+_one.constants.lastrefer)+"&d="+(Math.random()*100000);
+		return("<img src='"+nr+"' width='1' height='1' alt='szmtag' />");
+	},
+	startLoginLayout:function(){
+		if(_one.constants.gateway=='html'){
+			$('#loginblock,#forgotblock').remove();
+			$('#logusername').html(_one.constants.user.username);
+			$('#logprofileimage').attr('src',_one.constants.user.pic);
+			$('#profileblock').show();
+			if((_one.constants.currentmode=='register')||(_one.constants.currentmode=='')){
+				_one.actions.navigate('start','','start');
+				_one.actions.notice(_client.getText('Welcomeback')+_one.constants.user.username);
+			}
+		}else{
+			$('.loggedout').hide();
+			$('.loggedin').show();
+			if((_one.constants.currentmode=='useraction')||(_one.constants.currentmode=='mobilelogin')){
+				_one.actions.navigate('mobilestart','','start');
+				_one.actions.notice(_client.getText('Welcomeback')+_one.constants.user.username);
+			}
+		}
+		if(_one.constants.currentmode=='videos'){
+			_client.addCommentsBlock();
+		}
+	},
+	beforeNavigation:function(){
+		if(_one.mobile){
+			_one.mobile.tools.beforeNavigation();
+			if((_one.constants.currentmode=='videos')||(_one.constants.currentmode=='mobilevideos')){
+				_client.mobile.handleResize();
+			}else{
+				$('#one_share').hide();
+			}
+		}
+	},
+	addCommentsBlock:function(){
+		if($('#mycommentsend').length==0){
+			var pl="";
+			if(!_one.mobile){
+				pl="<textarea id='msg' class='input rounded' style='width:664px;'></textarea>";
+				pl+="<input id='mycommentsend' type='button' class='input rounded' style='width:674px;margin-top:6px;' value='"+_texts['comment']+"' onclick=\"_one.actions.sendComment();\" />";
+			}else{
+				pl="<textarea id='msg' class='span12' style='margin-top:20px;'></textarea><button type='button' id='mycommentsend' class='span12' style='margin-left:0;' onclick=\"_one.actions.sendComment();\">"+_texts['comment']+"</button>";
+			}
+			$('#commentblock').append(pl);
+		}
+	},
+	afterComment:function(){
+		if($('#fbsh').length>0){
+			if($('#fbsh').is(':checked')){
+				var vid=$('#videoid').val();
+				FB.api('/me/feed','post',{message:_client.getText('fbtemplate'),link:'http://www.golfdigital.tv/videos/'+vid,name:$('#videotitle').html(),picture:_one.tools.getLarawan(0,vid),source:_one.tools.getEmbed(vid,'facebook'),description:_one.constants.currentdescription});
+			}
+		}
+	},
+	activeMenu:function(id){
+		if(id!=''){
+			if(id.indexOf('/')>-1){
+				var i=id.split('/');
+				id=i[0];
+			}
+			$('#mainmenu .activemenu').removeClass('activemenu');
+			$('#mainmenu #'+id).addClass('activemenu');
+		}
+	},
+	initUpload:function(el){
+		if(_one.constants.gateway=='html'){
+			$('#'+el).append("<div id='flupload' style='height:70px;width:470px;margin-top:8px;margin-left:2px;'></div>");
+			var uploader=new qq.FileUploader({
+				element:$('#flupload')[0],
+				action:'http://'+document.domain+'/gateway/service.php',
+				params:{},
+				multiple:false,
+				allowedExtensions:['jpg','gif','jpeg','png','bmp'],
+				messages:{
+					'typeError':'nodragableuploadfiles',
+					'sizeError':'uploadmax',
+					'emptyError':'uploadempty'
+				},
+				showMessage:function(mes){
+					_one.actions.error(mes);
+				},
+				onProgress:function(id,fn,lo,to){
+					$('.qq-upload-button').html(_texts['uploading']+' ('+(Math.round((lo/to)*100)+'%')+')');
+				},
+				onComplete:function(id,fileName,tr){
+					if(parseInt(tr)==-1){
+						_one.actions.error('uploaderror');
+					}else{
+						$('#flupload').remove();
+						if($('#campic')){
+							$('#campic').css({top:'0px'});
+						}
+						_one.actions.error('uploadsuccess');
+						$('#logprofileimage').attr('src',tr);
+						_one.constants.user.pic=tr;
+					}
+				},
+				onSubmit:function(id,fn){
+					$('.qq-upload-button').html(_texts['uploading']);
+					uploader.setParams({filename:fn,cid:cid,forceget:1,dom:_one.constants.client,method:'profilepic'});
+				}
+			});
+			$('.qq-upload-drop-area,.qq-upload-list').remove();
+			if(_one.constants.facebooktoken!=''){
+				$('#mergefb').html("&nbsp;");
+				if(typeof(FB)!='undefined'){
+					$('#FBID').val(FB.getUserID());
+				}
+			}
+			if((_play.session.hasCam)&&(_play.session.useFlash)){
+				$('#'+el).append("<input id='campic' type='button' class='rounded input' value='Neues Profilfoto mit Webcam aufnehmen' onclick=\"_client.initCam();\" style='width:550px;margin-left:120px;position:relative;top:-30px;'>");
+			}
+		}else{
+			$('#mergefb').html("&nbsp;");
+			if(!_play.session.hasCam){
+				$('#mobilecapture').remove();
+			}
+		}
+	},
+	initCam:function(){
+		if(_one.constants.gateway=='html'){
+			$('#realcontent').append("<div id='camholder' class='shadowed'><div id='innercam' style='margin:10px;width:540px;height:400px;'></div><input type='button' class='rounded input' value='Kamera schlie&szlig;en' onclick=\"_client.closeCam();\" style='width:540px;margin:10px;'></div>");
+		}
+		_one.community.captureImage('innercam');
+	},
+	afterCam:function(u){
+		$('#logprofileimage').attr('src',u);
+		_one.constants.user.pic=u;
+		_client.closeCam();
+	},
+	closeCam:function(){
+		$('#camholder').remove();
+	},
+	checkFB:function(){
+		if(_one.constants.gateway!='html'){
+			$('.htmlelement').remove();
+		}
+	}
+}
+
+var _texts={
+	updatedone:'Deine Daten wurden erfolgreich geändert.',
+	appoffline:'Der Browser scheint offline zu sein.<br />Prüfe Deine Internet Verbindung.',
+	json:'Der Server reagiert nicht. Versuche es später erneut.',
+	shutdown:'Es ist ein schwerer Ausnahmefehler aufgetreten. Aktion nicht ausgeführt.',
+	alreadyregistered:'Dieser User ist bereits registriert.<br />Hast Du eventuell Dein Passwort vergessen? Fordere es rechts wieder an!',
+	fbnotfound:'Dieser Facebook User ist uns nicht bekannt.<br />Solltest Du bereits registriert sein, logge Dich mit Deinen Zugangsdaten ein und verbinde dann Deinen Facebook Account mit Deinem golfdigital.tv Account unter <b>Deine Daten</b>.<br />Wenn Du noch nicht registriert bist, klicke rechts auf registrieren!',
+	datasent:'Deine Daten wurden gefunden und werden Dir nun zugesandt.',
+	agb:'Du musst den Datenschutzbestimmungen zustimmen, um fortfahren zu können.',
+	messagesent:'Vielen Dank für Dein Feedback.<br />Wir werden uns schnellstmöglichst bei Dir melden.',
+	commentsent:'Vielen Dank für Dein Feedback.<br />Dein Kommentar wurde gespeichert.',
+	browserold:'Dein Browser wird nicht mehr vollständig unterstützt.<br />Du solltest ihn schnellstmöglichst aktualisieren.',
+	browserversionold:'Für Deinen Browser gibt es eine aktualiserte Version.<br />Du solltest ihn schnellstmöglichst aktualisieren.',
+	nofacebook:'Das Facebook Plugin konnte nicht geladen werden.<br />Die Verbindung steht daher nicht zur Verfügung.',
+	nofacebookid:'Es tut uns leid. Facebook hat keine gültige User ID zurückgegeben, daher können wir Dich so nicht einloggen.',
+	logintocomment:'Um Kommentare abgeben zu können, musst Du eingeloggt sein.',
+	comment:'Kommentar senden',
+	uploaderror:'Der Upload ist fehlgeschlagen.',
+	uploadsuccess:'Der Upload wurde erfolgreich beendet.',
+	uploadmax:'Die Datei ist zu gro&szlig;.<br />Bitte wähle eine andere.',
+	uploadempty:'Die Datei ist leer.<br />Bitte wähle eine andere.',
+	nodragableuploadfiles:'Bitte wähle eine Bilddatei.',
+	uploading:'Die Datei wird hochgeladen',
+	newupload:'Neues Profilfoto hochladen',
+	preload:'Einen Moment bitte...',
+	facebookmerged:'Vielen Dank.<br />Sobald Du Deine Daten speicherst, wird dein golfdigital.tv Account mit Deinem Facebook Account verbunden.',
+	fbtemplate:'hat gerade ein Video auf golfdigital.tv kommentiert:',
+	installwebapp:'Installiere golfdigital.tv auf Deinem Homescreen, um noch schneller zu den neuesten Videos zu kommen.',
+	noresults:'Wir konnten keine Videos für Deinen Suchbegriff finden.',
+	notfound:'Dieses Video konnten wir leider nicht finden.',
+	yourdata:'Deine Daten',
+	Welcomeback:'Willkommen zurück, ',
+	alreadyloggedin:'Es ist bereits ein User eingeloggt.<br />Eine weitere Registrierung ist nicht möglich.',
+	androidapp:"Lade Dir jetzt die golfdigital.tv App aus dem Google PlayStore.<br>Einfach hier klicken.",
+	fbidonother:"Deine Daten können nicht aktualisiert werden. Du bist mit einem Facebook Account eingeloggt, der einem anderen User zugeordnet ist.",
+	unsubscribed:"Du hast Dich erfolgreich vom Newsletter abgemeldet.",
+	thanksforfaving:"Vielen Dank für Deine Meinung.",
+	novalidcomment:"Bitte überprüfe Deinen Kommentar noch einmal."
+};
+
+
+$(document).ready(function(){
+	if((gw!='android')&&(gw!='ios')&&(gw!='winphone')){
+		_one.tools.init(cid,111,gw,false,true);
+
+		if(gw=='html'){
+			_one.tools.tooltip('div[title],img[title]');
+			_one.actions.posThumb('.videoelement');
+
+			if(document.location.pathname=='/unsubscribe'){
+				_one.actions.error('unsubscribed');
+			}else{
+				if(browserok==0){
+					_one.actions.error('browserold');
+				}else if(browserversionok==0){
+					_one.actions.error('browserversionold');
+				}
+			}
+			$('.adc').everyTime('90s',function(){
+				var sr=$(this).attr('src').split('?');
+				$(this).attr('src',sr[0]+'?r='+Math.random());
+			});
+		}else{
+			_one.mobile.tools.toTop();
+			_client.mobile.init();
+		}
+
+		if(startjs!=""){
+			eval(startjs);
+		}
+	}
+});

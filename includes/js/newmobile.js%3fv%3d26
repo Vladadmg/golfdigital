@@ -1,0 +1,95 @@
+_client.mobile={
+	init:function(){
+		_one.mobile.init();
+		_one.mobile.tools.sidebar.init();
+		$(window).bind('orientationchange resize', function(e){
+			if($('#videoplayer')){
+				var w=$('#vplholder').width();
+				_play.html5.control.resizePlayer(w,(w*.67));
+			}
+		});
+		if(document.location.pathname=='/unsubscribe'){
+			_one.actions.error('unsubscribed');
+		}else if((_play.html5.tools.isIOS())&&(!_play.html5.tools.isWebApp())){
+			_one.actions.error('installwebapp');
+		}
+	},
+	handleResize:function(){
+		if((_one.constants.currentmode=='videos')||(_one.constants.currentmode=='mobilevideos')){
+			var w=$(document).width();
+			if(w>340){
+				if(!_play.html5.tools.isWebApp()){
+					if((w<460)||(w>550)){ //handle upcoming search bar
+						$('#one_share').show();
+						if(parseInt(_one.constants.user.id)>0){
+							$('#one_fav').show();
+						}
+					}else{
+						$('#one_share,#one_fav').hide();
+					}
+				}
+
+			}
+		}
+	},
+	embedVideo:function(){
+		var w=$('#videoplayer').width();
+		var h=(w*.67);
+		$('#videoplayer').css({height:h+'px'});
+		_play.preInit.setDimensions(w,h);
+		_one.actions.startVideo($('#videoid').val());
+	},
+	useraction:function(){
+		_one.constants.currentmode='useraction';
+		if(_one.constants.user.id>0){
+			_one.ajax.go('mobileuserdata','',_one.ajax.parseResult);
+		}else{
+			_one.ajax.go('mobilelogin','',_one.ajax.parseResult);
+		}
+	}
+}
+
+_client.android={
+	init:function(){
+		_one.tools.init(cid,111,'android');
+		_play.session.isApp=true;
+		_play.preInit.setPlatform('mobile');
+		_play.preInit.setSSL(true);
+		_one.constants.servicegateway='https://ssl.golfdigital.tv/gateway/service.php';
+		_client.mobile.init();
+		if(startjs!=""){
+			eval(startjs);
+		}
+		_play.app.init('android');
+	}
+}
+
+_client.ios={
+	init:function(){
+		_one.tools.init(cid,111,'ios');
+		_play.session.isApp=true;
+		_play.preInit.setPlatform('mobile');
+		_play.preInit.setSSL(true);
+		_one.constants.servicegateway='https://ssl.golfdigital.tv/gateway/service.php';
+		_client.mobile.init();
+		if(startjs!=""){
+			eval(startjs);
+		}
+		_play.app.init('ios');
+	}
+}
+
+_client.winphone={
+	init:function(){
+		_one.tools.init(cid,111,'winphone');
+		_play.session.isApp=true;
+		_play.preInit.setPlatform('mobile');
+		_play.preInit.setSSL(true);
+		_one.constants.servicegateway='https://ssl.golfdigital.tv/gateway/service.php';
+		_client.mobile.init();
+		if(startjs!=""){
+			eval(startjs);
+		}
+		_play.app.init('winphone');
+	}
+}

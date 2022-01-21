@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="keywords" content="Golf, TV, Fernsehen, 24 Stunden, Trainingsvideos, PGA, LPGA, News, Tiger Woods, Martin Kaymer">
+<meta name="description" content="golfdigital.tv - Ihr 24 Stunden Golf Fernsehen im Internet">
+<script type="text/javascript" src="/files/js/prototype.js"></script>
+<script type="text/javascript" src="/files/js/global1.js"></script>
+<script type="text/javascript" src="/files/js/swfobject.js"></script>
+<script type="text/JavaScript">
+<!--
+function thisMovie(movieName) {
+	var isIE = navigator.appName.indexOf("Microsoft") != -1;
+	return (isIE) ? window[movieName] : document[movieName];
+}
+
+/*function playVideo() {
+	thisMovie("videoplayer").playVideo("/files/bsp/video/tour.flv");
+}*/
+function thisMovie(movieName) 
+	{
+		var isIE = navigator.appName.indexOf("Microsoft") != -1;
+		return (isIE) ? window[movieName] : document[movieName];
+	}
+	
+	function playVideo( file, param )
+	{
+		thisMovie("videoplayer").playVideo(file, param);
+	}
+	
+	function doOnLoad()
+	{
+		playVideo("/files/bsp/video/080714-TT.flv", "opener");
+	}
+
+	function replaceAdd(f){
+		document.getElementById('replacewithadd').innerHTML=document.getElementById('hiddenAdd').innerHTML;
+	}
+
+	function initAdd(){ 
+		var mpos=Math.round((myWidth-872)/2)+755; 
+		document.getElementById('addSmall').style.left=mpos+'px';
+		var so2 = new SWFObject("http://nexx.tv/golfdigital/add_small.swf", "addsmall", "170", "170", "8", "#FFFFFF");
+		so2.addParam("menu", "false");
+		so2.addParam("allowScriptAccess", "always");
+		so2.addParam("wmode","transparent");
+		so2.write("addSmall");
+	}
+
+	function initdemo(){
+		document.getElementById('replacewithadd').innerHTML=document.getElementById('hiddenDemo').innerHTML;
+	}
+
+	function reposition(){
+		var myWidth=1024;
+		if((document.all)&&(!document.opera)){
+			myWidth=window.document.body.clientWidth;
+		}else{
+			myWidth=window.innerWidth;
+		}
+		var mpos=Math.round((myWidth-872)/2)+755;
+		document.getElementById('addSmall').style.left=mpos+'px';
+	}
+
+//-->
+</script>
+<link rel="stylesheet" type="text/css" href="/files/css/styles1.css" media="screen" />
+<link rel="shortcut icon" href="/files/img/favicon.ico" />
+<title>golfdigital.tv</title>
+</head>
+
+<body onload="MM_preloadImages('/files/img/but1.gif')">
+<div id="addSmall" style="position:absolute; top:30px; left:10px; width:210px; height:210px; cursor:pointer;">
+
+</div>
+	<div id="holder">
+		<div id="header"><a href="/"><img src="/files/img/logo1.png" alt="golfdigital.tv" title="golfdigital.tv" width="251" height="74" /></a></div>
+		
+		
+		<div id="content">
+		
+
+
+<script type="text/javascript">
+function setCookie(name, wert, domain, expires, path, secure){
+   var cook = name + "=" + unescape(wert);
+   cook += (domain) ? "; domain=" + domain : "";
+   cook += (expires) ? "; expires=" + expires : "";
+   cook += (path) ? "; path=" + path : "";
+   cook += (secure) ? "; secure" : "";
+   document.cookie = cook;
+}
+
+function getCookie(name) {
+   var i=0;  //Suchposition im Cookie
+   var suche = name + "=";
+   while (i<document.cookie.length) {
+      if (document.cookie.substring(i, i + suche.length)
+      == suche) {
+         var ende = document.cookie.indexOf(";", i
+         + suche.length);
+         ende = (ende > -1) ? ende :
+         document.cookie.length;
+         var cook = document.cookie.substring(i
+            + suche.length, ende);
+         return unescape(cook);
+      }
+      i++;
+   }
+   return "";
+}
+
+function eraseCookie(name, domain, path) {
+   var cook=name+"=; expires=Thu, 01-Jan-70 00:00:01 GMT";
+   cook += (domain) ? "domain=" + domain : "";
+   cook += (path) ? "path=" + path : "";
+   document.cookie = cook;
+}
+
+function submitter() {
+	if (document.login.login_merken.checked) {
+		ablauf = new Date();
+		ablauf.setTime(ablauf.getTime()+(1000*3600*24*356));
+		setCookie("u1", document.login.user.value, false, ablauf.toGMTString(),'/');
+		setCookie("u2", document.login['pwd[18d3c1308a0cfc892f879d66a33cb606]'].value, false, ablauf.toGMTString(),'/');
+	} else {
+		ablauf = new Date();
+		ablauf.setTime(ablauf.getTime()-1);
+		setCookie("u1", document.login.user.value, false, ablauf.toGMTString(),'/');
+		setCookie("u2", document.login['pwd[18d3c1308a0cfc892f879d66a33cb606]'].value, false, ablauf.toGMTString(),'/');
+	}
+	//document.login.submit();
+ 	return (true);
+}
+
+function get_u1() {
+	return (getCookie('u1'));
+}
+
+function get_u2() {
+	return (getCookie('u2'));
+}
+
+function forminit() {
+	var u1 = get_u1();
+	var u2 = get_u2();
+	if (u1!='' && u2!='') {
+		document.login.login_merken.checked = true;
+	}
+	document.login.user.value = get_u1();
+	document.login['pwd[18d3c1308a0cfc892f879d66a33cb606]'].value = get_u2();
+	if (document.forms.length < 2){ 
+	document.login.user.focus();
+	}
+}
+
+</script>
+
+<div class="col1">
+	<div class="but">
+		<div class="butlink"><a href="/free" class="buligr" id="buli1" >Gratis testen</a></div><div class="butimg"><a href="/free"><img src="/files/img/but1.gif" width="21" height="27" name="but1" id="but1"  /></a></div></div>
+	
+	<div class="but">
+		<div class="butlink"><a href="/buy" class="buli" id="buli2"  onmouseover="switchStyle('on', 2);" onmouseout="switchStyle('off', 2);" >Premium Mitgliedschaft</a></div><div class="butimg"><a href="/buy"><img src="/files/img/but0.gif" width="21" height="27" name="but2" id="but2"  onmouseover="switchStyle('on', 2);" onmouseout="switchStyle('off', 2);"  /></a></div></div>
+	
+	<div class="but">
+		<div class="butlink"><a href="/gift" class="buli" id="buli3"  onmouseover="switchStyle('on', 3);" onmouseout="switchStyle('off', 3);" >Geschenk Abo</a></div><div class="butimg"><a href="/gift"><img src="/files/img/but0.gif" width="21" height="27" name="but3" id="but3"  onmouseover="switchStyle('on', 3);" onmouseout="switchStyle('off', 3);"  /></a></div></div>
+	
+	<div class="but">
+		<div class="butlink"><a href="/voucher" class="buli" id="buli4"  onmouseover="switchStyle('on', 4);" onmouseout="switchStyle('off', 4);" >Gutschein einl&ouml;sen</a></div><div class="butimg"><a href="/voucher"><img src="/files/img/but0.gif" name="but4" id="but4" width="21" height="27"  onmouseover="switchStyle('on', 4);" onmouseout="switchStyle('off', 4);"  /></a></div></div>
+	
+	<div class="but">
+		<div class="butlink"><a href="/index/info" class="buli" id="buli5"  onmouseover="switchStyle('on', 5);" onmouseout="switchStyle('off', 5);" >Info</a></div><div class="butimg"><a href="/index/info"><img src="/files/img/but0.gif" width="21" height="27" name="but5" id="but5"  onmouseover="switchStyle('on', 5);" onmouseout="switchStyle('off', 5);"  /></a></div></div>
+	
+	<div class="brclear10">&nbsp;</div>
+	
+	<div class="loginbox">
+		<div class="lo_top"><img src="/files/img/col1top.png" width="194" height="5" /></div>
+		<form action="/index/login" name="login" method="post" onSubmit="return submitter();">
+			<input name="rk" value="18d3c1308a0cfc892f879d66a33cb606" type="hidden">
+			<div class="lo_mi">
+				<!--<p class="anmeldung">Anmeldung</p>-->
+				<p class="lomip pad8px">Benutzername:</p>
+				<p class="lomip"><input id="name" name="user" maxlength="50" type="text" class="input_lg" onFocus="swapFocus(this)" onBlur="swapBlur(this)" value="" /></p>
+				<p class="lomip">Passwort:</p>
+				<p class="lomip"><input id="pwd" name="pwd[18d3c1308a0cfc892f879d66a33cb606]" type="password" maxlength="20" class="input_lg"  onFocus="swapFocus(this)" onBlur="swapBlur(this)"></p>
+				<p class="lome"><input type="image" src="/files/img/anmelden.gif" alt="anmelden" class="input_anm"><p>
+				<p class="loma"><input name="login_merken" type="checkbox" value="" class="input_chk" /> Login merken</p>
+				
+		
+				<div class="losub">
+					<p class="loginerror">Der eingegebene Benutzername und/oder das Passwort sind fehlerhaft.</p>					<p class="lomip"><a href="/registry/answer/tabIndex/4">Passwort vergessen?</a></p>
+					<p class="lomip"><a href="/index/sendMail">Bestätigungsmail neu senden</a></p>
+				</div>
+			</div>
+		</form>
+	<div class="lo_bo"><img src="/files/img/col1bo.png" width="194" height="5" /></div>
+</div>
+</div>
+<script type="text/javascript">
+Event.observe (window, 'load', forminit);
+</script>
+		<div class="col2" id="replacewithadd">
+			<div class="vidtop"><img src="/files/img/leiste_oben-1.png" width="520" height="4" /></div>
+			<div id="flashvideo"></div><div id="flashObj"></div><div class="vidbot"><img src="/files/img/leiste_unten-1.png" width="520" height="4" /></div>
+			<script type="text/javascript">
+				var myWidth=1024;
+				if((document.all)&&(!document.opera)){
+					myWidth=window.document.body.clientWidth;
+				}else{
+					myWidth=window.innerWidth;
+				}
+				var version = deconcept.SWFObjectUtil.getPlayerVersion()["major"];
+				var rVersion = 8;
+				
+				if (version < rVersion) {
+					
+					var txt = '<b>Der Flashplayer ab Version 8 wurde nicht gefunden.</b> ';
+					txt += '<br /><br />Bitte installieren Sie den aktuellen Flashplayer und rufen die Seite erneut auf.<br/><br/>';
+					txt += '<a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank">Jetzt herunterladen und installieren</a><br />';
+					
+					var textDiv = document.getElementById('flashObj');
+					textDiv.innerHTML = txt;
+					document.getElementById('flashvideo').style.display="none";
+					document.getElementById('flashObj').style.display="block";
+				} else {
+			
+					var so = new SWFObject("/files/bsp/videoplayer.swf", "videoplayer", "512", "360", "8", "#4576A8");
+					so.addParam("menu", "false");
+					so.addParam("allowScriptAccess", "always");
+					so.write("flashvideo");
+				}
+			
+			</script>
+			<div class="vidtop indexteasertop"><img src="/files/img/leiste_oben-1.png" width="520" height="4" /></div>
+			<div id="indexteaser" class="height50">
+				<div class="indexteaserin">
+					<script language="JavaScript1.2">
+
+						/*
+						Cross browser Marquee script- © Dynamic Drive (www.dynamicdrive.com)
+						For full source code, 100's more DHTML scripts, and Terms Of Use, visit http://www.dynamicdrive.com
+						Credit MUST stay intact
+						*/
+						
+						//Specify the marquee's width (in pixels)
+						var marqueewidth="496px"
+						//Specify the marquee's height
+						var marqueeheight="25px"
+						//Specify the marquee's marquee speed (larger is faster 1-10)
+						var marqueespeed=2
+						//configure background color:
+						var marqueebgcolor="#4576a8"
+						//Pause marquee onMousever (0=no. 1=yes)?
+						var pauseit=1
+						
+						//Specify the marquee's content (don't delete <nobr> tag)
+						//Keep all content on ONE line, and backslash any single quotations (ie: that\'s great):
+						
+						var marqueecontent="<nobr>*** Erleben Sie ein neues Magazin auf golfdigital.tv: Jetzt immer Montag und Donnerstag bei uns im Programm - die golf world news! Aktuelle Ergebnisse von der LPGA und der European Tour, dazu immer donnerstags hilfreiche Tipps und Analysen für den Hobbygolfer von Trainings-Guru Jörg Vanden Berge *** Sehen Sie darüber hinaus hochwertige Trainingsvideos, packende Dokumentationen und vieles mehr. ***</nobr>"
+
+						////NO NEED TO EDIT BELOW THIS LINE////////////
+						marqueespeed=(document.all)? marqueespeed : Math.max(1, marqueespeed-1) //slow speed down by 1 for NS
+						var copyspeed=marqueespeed
+						var pausespeed=(pauseit==0)? copyspeed: 0
+						var iedom=document.all||document.getElementById
+						if (iedom)
+						document.write('<span id="temp" style="visibility:hidden;position:absolute;top:-100px;left:-9000px">'+marqueecontent+'</span>')
+						var actualwidth=''
+						var cross_marquee, ns_marquee
+						
+						function populate(){
+						initAdd();
+						if (iedom){
+						cross_marquee=document.getElementById? document.getElementById("iemarquee") : document.all.iemarquee
+						cross_marquee.style.left=parseInt(marqueewidth)+8+"px"
+						cross_marquee.innerHTML=marqueecontent
+						actualwidth=document.all? temp.offsetWidth : document.getElementById("temp").offsetWidth
+						}
+						else if (document.layers){
+						ns_marquee=document.ns_marquee.document.ns_marquee2
+						ns_marquee.left=parseInt(marqueewidth)+8
+						ns_marquee.document.write(marqueecontent)
+						ns_marquee.document.close()
+						actualwidth=ns_marquee.document.width
+						}
+						lefttime=setInterval("scrollmarquee()",20)
+						}
+						window.onload=populate
+
+						function scrollmarquee(){
+							if (iedom){
+								if (parseInt(cross_marquee.style.left)>(actualwidth*(-1)+8))
+									cross_marquee.style.left=parseInt(cross_marquee.style.left)-copyspeed+"px"
+								else
+									cross_marquee.style.left=parseInt(marqueewidth)+8+"px"
+							} else if (document.layers){
+								if (ns_marquee.left>(actualwidth*(-1)+8))
+									ns_marquee.left-=copyspeed
+								else
+									ns_marquee.left=parseInt(marqueewidth)+8
+							}
+						}
+						
+						if (iedom||document.layers){
+							with (document){
+								document.write('<table border="0" cellspacing="0" cellpadding="0"><td>')
+							if (iedom){
+								write('<div style="position:relative;width:'+marqueewidth+';height:'+marqueeheight+';overflow:hidden">')
+								write('<div style="position:absolute;width:'+marqueewidth+';height:'+marqueeheight+';background-color:'+marqueebgcolor+'" onMouseover="copyspeed=pausespeed" onMouseout="copyspeed=marqueespeed">')
+								write('<div id="iemarquee" style="position:absolute;left:0px;top:0px"></div>')
+								write('</div></div>')
+							} else if (document.layers){
+								write('<ilayer width='+marqueewidth+' height='+marqueeheight+' name="ns_marquee" bgColor='+marqueebgcolor+'>')
+								write('<layer name="ns_marquee2" left=0 top=0 onMouseover="copyspeed=pausespeed" onMouseout="copyspeed=marqueespeed"></layer>')
+								write('</ilayer>')
+							}
+							document.write('</td></table>')
+						}
+					}
+				</script>
+								</div>
+			</div>
+			<div class="vidbot"><img src="/files/img/leiste_unten-1.png" width="520" height="4" /></div>
+
+<div id='demohint'>
+			<div class="vidtop indexteasertop"><img src="/files/img/leiste_oben-1.png" width="520" height="4" /></div>
+			<div id="indexteaser" class="height50">
+			
+<div class="indexteaserin" style="text-align:center; font-weight:bold; cursor:pointer;" onclick="initdemo();" style="font-weight:bold; cursor:pointer;"><span style="position:relative; top:-14px;">Wir bauen f&uuml;r Sie um! Erfahren Sie hier mehr!</span><img id="butd" width="21" height="27" onclick="initdemo();" name="butd" src="/files/img/but0.gif" style="position:relative; top:-6px; left:92px;" /></div>
+
+</div>
+			<div class="vidbot"><img src="/files/img/leiste_unten-1.png" width="520" height="4" /></div>
+</div>
+
+
+		</div>
+		<div class="col3">
+	<div class="box1"><a href="/free"><img src="/files/img/teaser1.png" alt="jetzt kostenlos testen" width="135" height="130" border="0" /></a></div>
+	<div class="box2"><a href="/index/tour"><img src="/files/img/teaser2.png" alt="geführte Tour starten" width="135" height="129" border="0" /></a></div>
+	<div class="box3"><a href="/systemcheck"><img src="/files/img/teaser3.png" alt="System-Check" width="135" height="130" border="0" /></a></div>
+</div>
+		</div><!-- /content-->
+
+	</div><!-- /holder-->
+		<div id="footer">
+		<div>
+		<a href="/files/html/agb.html" target="_blank" class="linkweiss">AGB</a>&nbsp;|&nbsp;
+		<a href="#" onclick='init_contact()' class="linkweiss">KONTAKT</a>&nbsp;|&nbsp;
+		<a href="/index/impressum" class="linkweiss">IMPRESSUM</a>
+	</div>
+	</div>
+	<div id="footerleft" style="position:fixed; bottom:8px; right:50%; width:436px; text-align:left; z-index:21; font-weight:bold;">
+		<a href="#" onclick='init_contact()' class="linkweiss" style="text-decoration:underline;" onclick="var imgwindow=window.open('http://nexx.tv/golfdigital/viatv.php','golfdigitaltv','height=400,width=512,location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no,screenX='+Math.round((screen.availWidth-512)/2)+',screenY=100');imgwindow.focus();"><b>golfdigital.tv auf Ihrem Fernseher!</b></a>
+	</div>
+	<script type='text/javascript'>
+	
+	function init_contact(){
+		if((document.URL!='http://www.golfdigital.tv/')&&(document.URL!='http://www.golfdigital.tv/#')){
+			document.getElementById('maincont').innerHTML=document.getElementById('contactdiv').innerHTML;
+		}else{
+			replaceAdd('');
+			document.getElementById('maincont').innerHTML=document.getElementById('contactdiv').innerHTML;
+		}
+	}
+
+
+	function emulate_blink(){
+	if(document.getElementById('footerleft').style.visibility=='hidden'){
+		document.getElementById('footerleft').style.visibility='visible';
+	}else{
+		if(counter==3){
+			document.getElementById('footerleft').style.visibility='hidden';
+			counter=0;
+		}else{
+			counter++;
+		}
+	}}
+	var counter=0;
+	blink=window.setInterval("emulate_blink()",250);
+	</script>
+	<div id="impressum"></div>
+	<div id="impressum_text">
+		<a href="#" onclick="closeimpressum()" class="impressumclose">schliessen</a>
+		<p class="bold">golfdigital.tv GmbH</p>
+		<p>Betastra&szlig;e 9a
+		<br />85774 Unterf&ouml;hring
+		<br />Deutschland
+		<br />Telefon:  +49 (0) 89 - 200 035 444
+		<br />Fax: +49 (0) 89 - 200 035 499
+		<br />E-Mail: <a href="mailto:info@golfdigital.tv">info@golfdigital.tv</a><br />
+
+		<br />www.golfdigital.tv
+		<br />Amtsgericht K&ouml;nigstein: HRB 7078<br /> Geschäftsführer: Dennis Beste</p>
+		
+	</div>
+	<div id='contactdiv' style='display:none;'>
+	<div class="maincontin">
+
+	<div class="formviewtop">
+	<div class="formviewtopin">
+
+		<h3>Kontakt</h3>
+
+	</div>
+	</div>
+	<div class="formviewtopin">
+	Sie haben Fragen oder Anregungen?<br />Rufen Sie uns einfach an, unser Callcenter berät Sie gerne:<br /><br />
+	<b>Servicehotline: +49 (0) 89 - 200 0354 44</b><br /><br />Wie freuen uns auf Ihren Anruf!
+	</div>				
+	</div>
+
+	</div>
+<div id="cont_agb"></div>
+<script type="text/javascript" src="http://collect.m-pathy.com/j?1019,1061"></script>
+<div id="hiddenAdd" style="display:none;">
+<div class="vidtop"><img src="/files/img/leiste_oben2.png" width="520" height="4" /></div>
+<div id="maincont">
+<div class="maincontin">
+<div class="formviewtop">
+<div class="formviewtopin">
+
+<h3>Das Juni Spezial von golfdigital.tv</h3>
+<p>Werden Sie jetzt Premium Mitglied und erhalten Sie zusätzlich unsere exklusiven Prämien!</p>
+</div>
+</div>
+<div class="formviewtopin">
+<img src='http://nexx.tv/golfdigital/junispecial.jpg' alt='' id='jspe' style='border:1px solid #FFFFFF; margin-bottom:10px;' />
+<p>12 hochwertige <b>NIKE Precision POWER DISTANCE Golfbälle</b> und den <b>golfdigital.tv Mitgliedsausweis</b>, als Bag Tag für Ihre Golftasche.</p>
+<br /><a href="#" onclick="document.location.href='http://www.golfdigital.tv/buy';" class="submit2">Jetzt registrieren und direkt Premium Mitglied werden</a>			
+			</div> 				
+		  </div>
+</div><div class="vidbot"><img src="/files/img/leiste_unten2.png" width="520" height="4" /></div>
+</div>
+<div id="hiddenDemo" style="display:none;">
+<div class="vidtop"><img src="/files/img/leiste_oben2.png" width="520" height="4" /></div>
+<div id="maincont">
+<div class="maincontin">
+<div class="formviewtop">
+<div class="formviewtopin">
+
+<h3>golfdigital.tv baut um</h3>
+<p>Ab dem 17.07.2008 wird golfdigital.tv noch besser</p>
+</div>
+</div>
+<div class="formviewtopin">
+<img src='http://nexx.tv/golfdigital/demo/demo.jpg' alt='' id='demopic' style='border:1px solid #FFFFFF; margin-bottom:10px;' />
+<p>Einfachere Bedienung. Neue Funktionen. Mehr Interaktivit&auml;t!</p>
+<br /><a href="#" onclick="imgwindow=window.open('http://nexx.tv/golfdigital/demo/video.html','golfdigitaltv','height=768,width=1024,location=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no,screenX='+Math.round((screen.availWidth-1024)/2)+',screenY=5');imgwindow.focus();" class="submit2">Einen ersten Eindruck von der Struktur der neuen TV-Plattform in Form einer Demoversion erhalten Sie hier...</a>			
+			</div> 				
+		  </div>
+</div><div class="vidbot"><img src="/files/img/leiste_unten2.png" width="520" height="4" /></div>
+</div>
+<script type='text/javascript'>window.onresize=reposition;</script>
+</body>
+
+</html>
+

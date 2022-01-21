@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>golfdigital.tv</title>
+<script type="text/javascript" src="/files/js/prototype.js"></script>
+<script type="text/javascript" src="/files/js/global1.js"></script>
+<script type="text/javascript" src="/files/js/scriptaculous.js"></script>
+<script type="text/javascript" src="/files/js/preindex.js"></script>
+<!-- WP <link rel="stylesheet" type="text/css" href="/files/css/styles1.css" media="screen" /> -->
+<link rel="stylesheet" type="text/css" href="/files/css/style_new.css" media="screen" />
+<link rel="shortcut icon" href="/files/img/favicon.ico" />
+<script type="text/javascript">
+function load(){
+	var errbox = document.getElementById("errorbox");
+	if(errbox)
+		overlay('errorbox');
+		
+	new Ajax.Autocompleter('input_club','ac_input_club','/index/listClub',{paramName: "keyword", minChars: 2,afterUpdateElement : getSelectionId});
+}
+</script>
+
+
+</head>
+
+<body onload="load();"  allowtransparency="true">
+<div class="bg">
+	<div id="holder">
+		
+		<!-- Webpages <div id="header"><a href="/"><img src="/files/img/logo1.png" alt="golfdigital.tv" title="golfdigital.tv" width="251" height="74" /></a></div> -->
+		
+		
+		<div id="content">
+		
+		<div class="col2"><!-- WP <div class="vidtop"><img src="/files/img/leiste_oben2.png" width="520" height="4" /></div>-->
+			<div id="maincont">
+				<div class="maincontin">
+					<!--start content-->
+					<div class="formviewtop">
+						<div class="formviewtopin">
+							<h3>Jetzt Mitglied werden!</h3>
+							<p>Werden Sie kostenlos Mitglied bei golfdigital.tv. <br /><br />
+							Als Mitglied k&ouml;nnen Sie jederzeit:<br />
+							<ul>
+								<li>gro&szlig;e Teile des TV Angebotes sehen</li>
+								<li>die Golf Community nutzen</li>
+								<li>eigene Fotos oder Videos bereitstellen</li>
+								<li>Freunde treffen oder Golfclubs finden und bewerten</li>
+							</ul>
+							</p>
+							<p>Melden Sie sich hier an:</p>
+						</div>
+					</div>
+					<div class="formviewtopin">
+						<h4>Benutzerdaten</h4>
+						<form action="/registry/put" name="registry" method="post">
+							<table border="0" cellpadding="0" cellspacing="0" class="formgr">
+								<tr>
+									<td width="90">Anrede*</td>
+									<td width="150">
+										<select name="salut" class="input_an">
+											<option value="1" >Herr</option>
+											<option value="2" >Frau</option>                           
+										</select>
+									</td>
+									<td width="90"></td>
+									<td width="130"></td>
+								</tr>
+								<tr>
+									<td >Vorname*</td>
+									<td><input name="firstname" type="text" class="std_input" maxlength="100" value="" onFocus="swapFocus(this)" onBlur="swapBlur(this)" /></td>
+									<td >Nachname*</td>
+									<td><input name="lastname" type="text" class="std_input" maxlength="100" value="" onFocus="swapFocus(this)" onBlur="swapBlur(this)" /></td>
+								</tr>
+								<!--
+								<tr>
+									<td >Geb. Datum*</td>
+									<td>
+										<input name="birthday" type="text" maxlength="2" style="width:25px; margin-right:3px;" value="" onFocus="swapFocus(this)" onBlur="swapBlur(this)" />
+										<input name="birthmonth" type="text" maxlength="2" style="width:25px; margin-right:3px;" value="" onFocus="swapFocus(this)" onBlur="swapBlur(this)" />
+										<input name="birthyear" type="text"  maxlength="4" style="width:35px; margin-right:3px;" value="" onFocus="swapFocus(this)" onBlur="swapBlur(this)" />
+									</td>
+						            <td id="input_club_t">Heimatclub</td>
+						            <td>
+																                    <input name="golfclub" id="input_club" type="text" maxlength="60" class="std_input" value="" onFocus="swapTip('on',this)" onBlur="swapTip('off',this)" />
+					                    <div id="ac_input_club" class="autocomplete"></div> 
+					                </td>
+								</tr>
+									-->
+								<tr>
+									<td >E-Mail*</td>
+									<td><input name="email" type="text" class="std_input" maxlength="100" value="" onFocus="swapFocus(this)" onBlur="swapBlur(this)" /></td>
+									<td >wiederholen*</td>
+									<td><input name="email_re" type="text" class="std_input" maxlength="100" value="" onFocus="swapFocus(this)" onBlur="swapBlur(this)" /></td>
+								</tr>
+							<!--</table> 
+						<table border="0" cellpadding="0" cellspacing="0" class="formgr">-->
+							<tr>
+								<td width="90" >Benutzername*</td>
+								<td width="150"><input name="nickname" class="std_input" maxlength="50" value="" type="text" onFocus="swapFocus(this)" onBlur="swapBlur(this)" ></td>
+								<td width="90"></td>
+								<td width="130"></td>
+							</tr>
+							<tr>
+								<td >Passwort*</td>
+								<td><input name="password" maxlength="50" class="std_input" type="password" onFocus="swapFocus(this)" onBlur="swapBlur(this)" ></td>
+								<td >wiederholen*</td>
+								<td><input name="password_re" maxlength="50" class="std_input" type="password" onFocus="swapFocus(this)" onBlur="swapBlur(this)" ></td>
+							</tr>
+							<tr>
+								<td colspan="4"><span class=""><input name="declare" value="yes"  type="checkbox" class="input_chk"></span>&nbsp;  
+									<span>Ich best&auml;tige die Richtigkeit meiner Angaben <a href="javascript:void(0);" onClick="overlay('agb');" class="agbli">...mehr lesen<a></span></td>
+							</tr>
+							<tr>
+								<td colspan="3">(die Felder mit * sind Pflichtfelder)</td>
+								<td class="tdright"><a href="#" onclick="javascript:document.registry.submit();" class="submit2">bestätigen</a></td>
+							</tr>
+						</table>
+					</form>
+			</div>
+		 <!--end content-->
+		  </div>
+</div><!-- WP <div class="vidbot"><img src="/files/img/leiste_unten2.png" width="520" height="4" /> </div> -->
+</div>
+				</div><!-- /content-->
+
+	</div><!-- /holder-->
+		
+	
+<div id="agb"><p>Ich bestätige die Richtigkeit meiner Angaben und stimme der Nutzung meiner Daten durch die golfdigital.tv GmbH, Betastra&szlig;e 9a, 85774 Unterf&ouml;hring zu. Ich bin mit der Zusendung von Informationen und der Kontaktaufnahme einverstanden. Ich habe jederzeit das Recht diese Einverständniserklärung bei der golfdigital.tv GmbH zu widerrufen und bestätige über mein Widerrufsrecht vor der Abgabe meiner Angaben unterrichtet worden zu sein.</p>
+ <p class="tacenter"><a href="javascript:void(0);" onClick="closeoverlay('agb');" class="submit">weiter</a></p></div>
+
+</div>
+<div id="impressum"></div>
+</body>
+</html>
+

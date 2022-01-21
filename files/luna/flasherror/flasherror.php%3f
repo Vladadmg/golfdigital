@@ -1,0 +1,43 @@
+<br />
+<b>Notice</b>:  Undefined index:  v in <b>/srv/www/flashlive/docs/files/luna/flasherror/flasherror.php</b> on line <b>2</b><br />
+<br />
+<b>Notice</b>:  Undefined index:  cid in <b>/srv/www/flashlive/docs/files/luna/flasherror/flasherror.php</b> on line <b>2</b><br />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>golfdigital.tv</title>
+</head>
+<style>
+body{
+ width:100%;
+ height:100%;
+ margin:0px;
+ padding: 0px;
+ color:#FFFFFF;
+ font:11px Verdana, Arial, sans-serif;
+}
+
+
+div#entry{
+		overflow: hidden;
+		visibility: visible;
+		position			: absolute; 
+		top					: 50%;  
+		left				: 50%; 
+		width				: 684px;  
+		height				: 517px;   
+		margin-top			: -258px;  
+		margin-left			: -342px;  
+}
+
+</style>
+<body>
+	<div><img src="streifen.jpg" width="100%" height="100%"/></div>
+	<div id="entry">
+		<p style="text-align:center;">
+			<a href="http://www.adobe.com/go/getflashplayer" title="Install Flashplayer" style="border-width:0px;"><img src="flash_erkennung.jpg" style="border-width:0px;" title="keinen aktuellen Flashplayer installiert" alt="keinen aktuellen Flashplayer installiert"></a>
+		</p>
+	</div>
+</body>
+</html>
